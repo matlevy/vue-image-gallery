@@ -7,7 +7,7 @@
         style="max-width: 20rem;"
         class="m-2 gallery-card">
         <p class="copy">{{gallery.title}}</p>
-        <router-link :to="{ name: 'gallery-photos', params: { id: gallery.id }}"><b-button block="true" variant="primary">View Images</b-button></router-link>
+        <router-link :to="{ name: 'gallery-photos', params: { id: gallery.id }}"><b-button :block="true" variant="primary">View Images</b-button></router-link>
     </b-card>
 </template>
 
