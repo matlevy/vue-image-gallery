@@ -6,13 +6,25 @@
         <div v-if="error">
             {{ error }}
         </div>
-        <div v-if="user">
-            {{ user }}
-        </div>
+        <b-row v-if="user">
+            <b-col sm="12" md="3">
+                <user-card :user="user" class="user-card"/>
+            </b-col>
+            <b-col sm="12" md="9">
+                <router-view/>
+            </b-col>
+        </b-row>
     </div>
 </template>
 
+<style lang="scss">
+    .user-card {
+        width: 100%;
+    }
+</style>
+
 <script>
+import UserCard from "@/components/UserCard.vue";
 import {
     userService
 } from './../services/users.js';
@@ -29,6 +41,9 @@ export default {
   },
   created () {
     this.fetch();
+  },
+  components: {
+      UserCard
   },
   watch: {
     '$route': 'fetch'

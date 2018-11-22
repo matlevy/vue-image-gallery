@@ -7,20 +7,10 @@
             {{ error }}
         </div>
         <div v-if="users" class="gallery-grid">
-            <b-card 
-                :title="user.name"
+            <user-card
                 v-for="(user, index) in users" v-bind:key="index"
-                img-src="https://picsum.photos/600/300/?image=25"
-                img-alt="Image"
-                img-top
-                tag="article"
-                style="max-width: 20rem;"
-                class="m-2">
-                <p class="card-text">
-                    {{user.email}}
-                </p>
-                <router-link :to="{ name: 'user', params: { id: user.id }}"><b-button variant="primary">View</b-button></router-link>
-            </b-card>
+                :user="user"
+            />
         </div>
     </div>
 </template>
@@ -36,9 +26,10 @@
 
 
 <script>
+import UserCard from "@/components/UserCard.vue";
 import {
     userService
-} from './../services/users.js';
+} from '@/services/users.js';
 
 export default {
   name: 'users',
@@ -55,6 +46,9 @@ export default {
   },
   watch: {
     '$route': 'fetch'
+  },
+  components: {
+      UserCard
   },
   methods: {
       fetch() {

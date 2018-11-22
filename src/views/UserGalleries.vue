@@ -6,12 +6,24 @@
         <div v-if="error">
             {{ error }}
         </div>
-        <div v-if="galleries">
-            {{ galleries }}
+        <div v-if="galleries" class="gallery-grid">
+            <gallery-card
+                v-for="(gallery, index) in galleries" v-bind:key="index"
+                :gallery="gallery"
+            />
         </div>
     </div>
 </template>
+<style lang="scss">
+    .gallery-grid {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+    }
+</style>
 <script>
+import GalleryCard from "@/components/GalleryCard.vue";
 import {
     photoService
 } from './../services/photos.js';
@@ -31,6 +43,9 @@ export default {
   },
   watch: {
     '$route': 'fetch'
+  },
+  components: {
+      GalleryCard
   },
   methods: {
       fetch() {
