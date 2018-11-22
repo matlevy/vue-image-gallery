@@ -7,11 +7,17 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import { photoService } from "./services/photos";
+import { userService } from './services/users.js'
 
 export default {
   name: 'app',
   components: {
     HelloWorld
+  },
+  beforeCreate: () => {
+    userService.getAll();
+    data.getAll();
   }
 }
 </script>
