@@ -6,24 +6,23 @@
         <div v-if="error">
             {{ error }}
         </div>
-        <div v-if="user">
-            {{ user }}
+        <div v-if="photos">
+            {{ photos }}
         </div>
     </div>
 </template>
-
 <script>
 import {
-    userService
-} from './../services/users.js';
+    photoService
+} from './../services/photos.js';
 
 export default {
-  name: 'user',
+  name: 'user-galleries',
   props: ['id'],
   data () {
       return {
           loading: false,
-          user: null,
+          photos: [],
           error: null
       }
   },
@@ -35,11 +34,12 @@ export default {
   },
   methods: {
       fetch() {
-          this.error = this.user = null;
+          this.error = null;
+          this.photos = [];
           this.loading = true;
-          userService.getUser(this.$route.params.id).then(
+          photoService.getAlbumPhotos(this.$route.params.id).then(
               (data) => {
-                  this.user = data;
+                  this.photos = data;
                   this.loading = false;
               }
           )

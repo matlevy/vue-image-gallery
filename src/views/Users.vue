@@ -6,8 +6,8 @@
         <div v-if="error">
             {{ error }}
         </div>
-        <div v-if="user">
-            {{ user }}
+        <div v-if="users">
+            {{ users }}
         </div>
     </div>
 </template>
@@ -18,12 +18,12 @@ import {
 } from './../services/users.js';
 
 export default {
-  name: 'user',
+  name: 'users',
   props: ['id'],
   data () {
       return {
           loading: false,
-          user: null,
+          users: [],
           error: null
       }
   },
@@ -35,11 +35,12 @@ export default {
   },
   methods: {
       fetch() {
-          this.error = this.user = null;
+          this.error = null;
+          this.users = [];
           this.loading = true;
-          userService.getUser(this.$route.params.id).then(
+          userService.getAll().then(
               (data) => {
-                  this.user = data;
+                  this.users = data;
                   this.loading = false;
               }
           )

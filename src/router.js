@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Users from './views/Users.vue'
 
 Vue.use(Router)
 
@@ -10,18 +10,32 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'users',
+      component: Users
+    },
+    {
+      path: '/user/:id/galleries',
+      name: 'galleries',
+      props: true,
+      component: () => import(/* webpackChunkName: "about" */ './views/UserGalleries.vue')
+    },
+    {
+      path: '/gallery/:id',
+      name: 'gallery-photos',
+      props: true,
+      component: () => import(/* webpackChunkName: "about" */ './views/GalleryPhotos.vue')
+    },
+    {
+      path: '/photo/:id',
+      name: 'photo',
+      props: true,
+      component: () => import(/* webpackChunkName: "about" */ './views/Photo.vue')
     },
     {
       path: '/user/:id',
       name: 'user',
+      props: true,
       component: () => import(/* webpackChunkName: "about" */ './views/User.vue')
-    },
-    {
-      path: '/gallery/:id',
-      name: 'gallery',
-      component: () => import(/* webpackChunkName: "about" */ './views/Gallery.vue')
     }
   ]
 })
