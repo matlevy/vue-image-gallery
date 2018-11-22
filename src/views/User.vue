@@ -7,11 +7,11 @@
             {{ error }}
         </div>
         <b-row v-if="user">
-            <b-col sm="12" md="3">
-                <user-card :user="user" class="user-card"/>
-            </b-col>
             <b-col sm="12" md="9">
                 <router-view/>
+            </b-col>
+            <b-col sm="12" md="3">
+                <user-card :user="user" class="user-card"/>
             </b-col>
         </b-row>
     </div>
