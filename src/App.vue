@@ -1,26 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-import { photoService } from "./services/photos";
-import { userService } from './services/users.js'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  },
-  beforeCreate: () => {
-    userService.getAll();
-    data.getAll();
-  }
-}
-</script>
 
 <style>
 #app {
