@@ -32,6 +32,12 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/User.vue'),
       children: [
         { 
+          path: '', 
+          name: 'user-details',
+          props: true,
+          component: () => import(/* webpackChunkName: "about" */ './views/UserDetail.vue')
+        },
+        { 
           path: 'gallery', 
           name: 'user-gallery',
           component: () => import(/* webpackChunkName: "about" */ './views/UserGalleries.vue')

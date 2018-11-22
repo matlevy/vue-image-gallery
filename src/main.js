@@ -2,6 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
+import * as VueGoogleMaps from 'vue2-google-maps'
+ 
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyACDmcuVUgFkcrhglb3Op7C4CsI9GdsSeo',
+    libraries: 'places', 
+  },
+});
 
 Vue.config.productionTip = false
 
