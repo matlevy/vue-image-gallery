@@ -14,6 +14,12 @@ export default new Router({
       component: Users
     },
     {
+      path: '/lightbox',
+      name: 'lightbox',
+      props: true,
+      component: () => import(/* webpackChunkName: "about" */ './views/LightBox.vue'),
+    },
+    {
       path: '/user/:id',
       name: 'user',
       props: true,

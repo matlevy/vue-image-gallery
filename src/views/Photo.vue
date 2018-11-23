@@ -11,8 +11,8 @@
             <h1 class="photo-title">{{ photo.title }}</h1>
             <b-button v-on:click="addToLightBox" variant="primary" class="mt-3 mr-3">Add To LightBox</b-button>
             <b-button v-on:click="removeFromLightBox" variant="primary" class="mt-3 mr-3">Remove From LigthBox</b-button>
-            <b-button target="_blank" :href="photo.url" variant="primary" class="mt-3 mr-3">Download</b-button>
-            <router-link :to="{ name: 'user-photos', params: { gallery: photo.albumId }}"><b-button variant="primary" class="mt-3 mr-3">View Gallery</b-button></router-link>
+            <b-button target="_blank" :href="photo.url" variant="secondary" class="mt-3 mr-3">Download</b-button>
+            <router-link :to="{ name: 'user-photos', params: { gallery: photo.albumId }}"><b-button variant="secondary" class="mt-3 mr-3">View Gallery</b-button></router-link>
         </div>
     </div>
 </template>

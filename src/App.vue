@@ -7,7 +7,7 @@
           <b-nav-item href="/">Home</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item href="#"><b-button size="sm" variant="warning">LightBox <b-badge>{{ lightBoxSize }}</b-badge></b-button></b-nav-item>
+          <b-nav-item href="#"><b-button :to="{ name: 'lightbox' }" size="sm" variant="warning">LightBox <b-badge>{{ lightBoxSize }}</b-badge></b-button></b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
