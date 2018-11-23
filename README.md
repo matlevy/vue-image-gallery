@@ -4,6 +4,9 @@ This is a demonstration project showing most of the common features available wi
 
 I working demonstration of the project can be found at https://vue-gallery-demo.firebaseapp.com/
 
+
+
+
 ## Project setup
 ```
 npm install
