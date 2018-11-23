@@ -9,6 +9,8 @@
         <div v-if="photo" class="photo">
             <b-img :src="photo.url" fluid :alt="photo.title" />
             <h1 class="photo-title">{{ photo.title }}</h1>
+            <b-button v-on:click="addToLightBox" variant="primary" class="mt-3 mr-3">Add To LightBox</b-button>
+            <b-button v-on:click="removeFromLightBox" variant="primary" class="mt-3 mr-3">Remove From LigthBox</b-button>
             <b-button target="_blank" :href="photo.url" variant="primary" class="mt-3 mr-3">Download</b-button>
             <router-link :to="{ name: 'user-photos', params: { gallery: photo.albumId }}"><b-button variant="primary" class="mt-3 mr-3">View Gallery</b-button></router-link>
         </div>
@@ -24,6 +26,13 @@
 </style>
 
 <script>
+
+import { mapActions } from 'vuex'
+
+import {
+    lightbox
+} from './../events/lightbox.js';
+
 import {
     photoService
 } from './../services/photos.js';
@@ -54,6 +63,12 @@ export default {
                   this.loading = false;
               }
           )
+      },
+      addToLightBox() {
+          this.$store.dispatch(lightbox.LIGHTBOX_ADD, this.photo);
+      },
+      removeFromLightBox() {
+          this.$store.dispatch(lightbox.LIGHTBOX_REMOVE, this.photo);
       }
   }
 }
