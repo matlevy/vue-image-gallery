@@ -20,7 +20,7 @@
                 <b-row>
                     <b-col>
                         <router-link  :key="index" v-for="(image, index) in filteredPhotos" :to="{ name: 'user-photo', params: { photoId: image.id }}">
-                            <b-img thumbnail fluid :src="image.thumbnailUrl" :alt="image.title"></b-img>
+                            <b-img thumbnail fluid :src="image.thumbnailUrl" :alt="image.title" class="m-1"></b-img>
                         </router-link>
                     </b-col>
                 </b-row>

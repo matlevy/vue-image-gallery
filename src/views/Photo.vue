@@ -27,8 +27,6 @@
 
 <script>
 
-import { mapActions } from 'vuex'
-
 import {
     lightbox
 } from './../events/lightbox.js';
