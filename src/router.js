@@ -14,12 +14,6 @@ export default new Router({
       component: Users
     },
     {
-      path: '/gallery/:id',
-      name: 'gallery-photos',
-      props: true,
-      component: () => import(/* webpackChunkName: "about" */ './views/GalleryPhotos.vue')
-    },
-    {
       path: '/photo/:id',
       name: 'photo',
       props: true,
@@ -41,6 +35,11 @@ export default new Router({
           path: 'gallery', 
           name: 'user-gallery',
           component: () => import(/* webpackChunkName: "about" */ './views/UserGalleries.vue')
+        },
+        { 
+          path: 'photos/:gallery', 
+          name: 'user-photos',
+          component: () => import(/* webpackChunkName: "about" */ './views/GalleryPhotos.vue')
         },
       ]
     }

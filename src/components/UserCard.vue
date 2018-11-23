@@ -10,7 +10,7 @@
         <p class="card-text">
             {{user.email}}
         </p>
-        <p><router-link :to="{ name: 'user-gallery', params: { id: user.id }}"><b-button :block="true" variant="primary">View Gallery</b-button></router-link></p>
+        <p><router-link :to="{ name: 'user-gallery', params: { id: user.id }}"><b-button :block="true" variant="primary">View Galleries</b-button></router-link></p>
         <router-link :to="{ name: 'user-details', params: { id: user.id }}"><b-button :block="true" variant="secondary">Contact</b-button></router-link>
     </b-card>
 </template>

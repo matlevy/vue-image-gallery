@@ -24,7 +24,7 @@
     }
 </style>
 <script>
-import GalleryCard from "@/components/GalleryCard.vue";
+
 import { userService } from "./../services/users.js";
 
 export default {
@@ -42,9 +42,6 @@ export default {
   },
   watch: {
     $route: "fetch"
-  },
-  components: {
-    GalleryCard
   },
   methods: {
     fetch() {

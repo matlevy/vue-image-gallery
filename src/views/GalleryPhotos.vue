@@ -7,7 +7,7 @@
             {{ error }}
         </div>
         <div v-if="photos">
-            {{ photos }}
+            <b-img :key="index" v-for="(image, index) in photos" thumbnail fluid :src="image.thumbnailUrl" :alt="image.title"></b-img>
         </div>
     </div>
 </template>
