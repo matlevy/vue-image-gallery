@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
 import * as VueGoogleMaps from 'vue2-google-maps'
- 
+import store from './store'
+
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyACDmcuVUgFkcrhglb3Op7C4CsI9GdsSeo',
@@ -17,5 +18,6 @@ Vue.use(BootstrapVue);
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
