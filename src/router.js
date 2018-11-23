@@ -14,12 +14,6 @@ export default new Router({
       component: Users
     },
     {
-      path: '/photo/:id',
-      name: 'photo',
-      props: true,
-      component: () => import(/* webpackChunkName: "about" */ './views/Photo.vue')
-    },
-    {
       path: '/user/:id',
       name: 'user',
       props: true,
@@ -34,12 +28,20 @@ export default new Router({
         { 
           path: 'gallery', 
           name: 'user-gallery',
+          props: true,
           component: () => import(/* webpackChunkName: "about" */ './views/UserGalleries.vue')
         },
         { 
-          path: 'photos/:gallery', 
+          path: 'gallery/:id', 
           name: 'user-photos',
+          props: true,
           component: () => import(/* webpackChunkName: "about" */ './views/GalleryPhotos.vue')
+        },
+        {
+          path: 'photo/:photoId',
+          name: 'user-photo',
+          props: true,
+          component: () => import(/* webpackChunkName: "about" */ './views/Photo.vue')
         },
       ]
     }

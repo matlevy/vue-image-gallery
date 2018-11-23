@@ -7,7 +7,9 @@
             {{ error }}
         </div>
         <div v-if="photos">
-            <b-img :key="index" v-for="(image, index) in photos" thumbnail fluid :src="image.thumbnailUrl" :alt="image.title"></b-img>
+            <router-link  :key="index" v-for="(image, index) in photos" :to="{ name: 'user-photo', params: { photoId: image.id }}">
+                <b-img thumbnail fluid :src="image.thumbnailUrl" :alt="image.title"></b-img>
+            </router-link>
         </div>
     </div>
 </template>
