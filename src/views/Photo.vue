@@ -22,6 +22,7 @@
     }
     .photo-title {
         margin-top: 1em;
+        color: white;
     }
 </style>
 
