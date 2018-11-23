@@ -28,6 +28,14 @@
         </b-row>
     </div>
 </template>
+<style lang="scss" scoped>
+.img-thumbnail {
+    min-width: 150px;
+    min-height: 150px;
+    background-color: white;
+}
+</style>
+
 <script>
 import { photoService } from "./../services/photos.js";
 
