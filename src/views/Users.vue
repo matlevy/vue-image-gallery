@@ -6,12 +6,26 @@
         <div v-if="error">
             {{ error }}
         </div>
-        <div v-if="users" class="gallery-grid">
-            <user-card
-                v-for="(user, index) in users" v-bind:key="index"
-                :user="user"
-            />
-        </div>
+        <b-row v-if="users">
+            <b-col>
+                <b-row>
+                    <b-col>
+                        <b-form-input v-model="userSearchTerm"
+                            type="text"
+                            placeholder="Enter your search term">
+                        </b-form-input>
+                    </b-col>
+                </b-row>
+                <b-row>
+                    <b-col class="gallery-grid">
+                        <user-card
+                            v-for="(user, index) in filteredUsers" v-bind:key="index"
+                            :user="user"
+                        />
+                    </b-col>
+                </b-row>
+            </b-col>
+        </b-row>
     </div>
 </template>
 
@@ -38,7 +52,8 @@ export default {
       return {
           loading: false,
           users: [],
-          error: null
+          error: null,
+          userSearchTerm: ''
       }
   },
   created () {
@@ -49,6 +64,11 @@ export default {
   },
   components: {
       UserCard
+  },
+  computed: {
+      filteredUsers: function() {
+        return this.users.filter( v => String(v.name).toLowerCase().includes(this.userSearchTerm.toLowerCase()) );      
+      }
   },
   methods: {
       fetch() {
